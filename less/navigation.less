@@ -4,10 +4,20 @@
 }
 
 .header {
-    .custom-layout(space-between);
-	align-items: flex-end;
+    .custom-layout(space-between, flex-end);
     margin: 0 auto 10px auto;
-    padding: 30px 20px 20px 0;
+    padding: 30px 20px 15px 0;
+
+    @media @mobile {
+        flex-flow: wrap column;
+        .custom-layout();
+        padding: 30px 0 0 0;
+        margin: 0 auto;
+
+        h1 {
+            font-size: 3rem;
+        }
+      }
 
 	nav {
         display: flex;
@@ -17,16 +27,24 @@
             font-size: 1.6rem;
 			margin: 0px 30px 0 0px;
 			text-decoration: none;
-			position: relative;
 			color: black;
 
 			&:last-child {
-				margin: 0 10px 0 0;
+                margin: 0 10px 0 0;
+                
+                @media @mobile {
+                    margin: 0 auto;
+                  }
 			}
 
 			&:hover {
 				color: lightgray;
-			}
+            }
+            
+            @media @mobile {
+                margin: 0 auto;
+                padding: 20px 30px 0 30px;
+              }
 		}
 	}
 }

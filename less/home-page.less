@@ -1,4 +1,7 @@
 .home {
+  @media @mobile {
+    padding: 0 30px 0 30px;
+  }
 
   .main-content {
     border-bottom: 2px dashed @navigation-border;
@@ -16,18 +19,37 @@
     margin: 30px 0;
     .custom-layout(space-between, flex-start);
     flex-wrap: wrap;
-    
+
+    @media @mobile {
+      flex-flow: wrap column;
+      .custom-layout();
+    }
+
     .text-content {
       width: 48%;
       padding-right: 1%;
+
+      @media @mobile {
+        width: 100%;
+        padding-right: 0;
+      }
     }
 
     .img-content {
       width: 48%;
       padding-left: 1%;
 
+      @media @mobile {
+        width: 100%;
+        padding-left: 0;
+      }
+
       img {
-        border-radius: 10px;
+        .border-radius(10px);
+
+        @media @mobile {
+          width: 100%;
+        }
       }
     }
   }
@@ -39,11 +61,21 @@
     .text-content {
       padding-left: 1%;
       padding-right: 0;
+
+      @media @mobile {
+        padding-right: 0;
+      }
     }
 
     .img-content {
       padding-right: 1%;
       padding-left: 0;
+
+      @media @mobile {
+        width: 100%;
+        padding-right: 0;
+        order: 1;
+      }
     }
   }
 
@@ -51,8 +83,12 @@
     width: 75%;
     margin: 0 auto 30px;
 
+    @media @mobile {
+      width: 100%;
+    }
+
     img {
-      border-radius: 10px;
+      .border-radius(10px);
     }
   }
 
@@ -61,22 +97,36 @@
     border-top: 2px dashed @navigation-border;
     .custom-layout(space-between);
 
+    @media @mobile {
+      flex-flow: wrap column;
+      .custom-layout();
+    }
+
     .destination {
       width: 30%;
       margin-bottom: 30px;
+
+      @media @mobile {
+        width: 100%;
+        padding: 0 50px;
+      }
+
+      button {
+        .border-radius(10px);
+        padding: 12px 50px;
+        font-size: 18px;
+        border-radius: 10px;
+        background-color: teal;
+        color: white;
+        cursor: pointer;
+
+        @media @mobile {
+          width: 100%;
+          background-color: lighten(teal, 7%);
+        }
+      }
     }
   }
 }// home
 
-button {
-  .border-radius(6px);
-  padding: 15px 50px;
-  font-size: 18px;
-  border-radius: 10px;
-  background-color: teal;
-  color: white;
-  cursor: pointer;
-  &:hover { 
-    background-color: darken(teal, 5%)
-  }
-}
+
