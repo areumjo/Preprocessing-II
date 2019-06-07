@@ -1,24 +1,55 @@
 .home {
+  @media @mobile {
+    padding: 0 30px 0 30px;
+  }
+
+  .main-content {
+    border-bottom: 2px dashed @navigation-border;
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+  }
 
   .content-section {
     margin: 30px 0;
-    display: flex;
+    .custom-layout(space-between, flex-start);
     flex-wrap: wrap;
-    justify-content: space-between;
 
-   
-    
+    @media @mobile {
+      flex-flow: wrap column;
+      .custom-layout();
+    }
+
     .text-content {
       width: 48%;
       padding-right: 1%;
+
+      @media @mobile {
+        width: 100%;
+        padding-right: 0;
+      }
     }
 
     .img-content {
       width: 48%;
       padding-left: 1%;
 
+      @media @mobile {
+        width: 100%;
+        padding-left: 0;
+      }
+
       img {
-        border-radius: 10px;
+        .border-radius(10px);
+
+        @media @mobile {
+          width: 100%;
+        }
       }
     }
   }
@@ -30,11 +61,21 @@
     .text-content {
       padding-left: 1%;
       padding-right: 0;
+
+      @media @mobile {
+        padding-right: 0;
+      }
     }
 
     .img-content {
       padding-right: 1%;
       padding-left: 0;
+
+      @media @mobile {
+        width: 100%;
+        padding-right: 0;
+        order: 1;
+      }
     }
   }
 
@@ -42,20 +83,51 @@
     width: 75%;
     margin: 0 auto 30px;
 
+    @media @mobile {
+      width: 100%;
+    }
+
     img {
-      border-radius: 10px;
+      .border-radius(10px);
     }
   }
 
   .content-pick {
     padding-top: 30px;
     border-top: 2px dashed @navigation-border;
-    display: flex;
-    justify-content: space-between;
+    .custom-layout(space-between);
+
+    @media @mobile {
+      flex-flow: wrap column;
+      .custom-layout();
+    }
 
     .destination {
       width: 30%;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+
+      @media @mobile {
+        width: 100%;
+        padding: 0 50px;
+        margin-bottom: 30px;
+      }
+
+      button {
+        .border-radius(10px);
+        padding: 12px 50px;
+        font-size: 18px;
+        border-radius: 10px;
+        background-color: #17A2B8;
+        color: white;
+        cursor: pointer;
+
+        @media @mobile {
+          width: 100%;
+          background-color: lighten(#17A2B8, 7%);
+        }
+      }
     }
   }
 }// home
+
+
